@@ -7,23 +7,23 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class DataService {
-    news = new Rx.BehaviorSubject({});
+    chapter = new Rx.BehaviorSubject({});
 
   constructor(private http: HttpClient) { }
 
-  getNews(category){
+  getChapters(book){
         return new Promise((resolve) => {
-  	this.http.get('https://newsapi.org/v2/top-headlines?country=us&category='+category+'&apiKey=5cb13a51c3194007992f4ed26ef45498').subscribe((response) => {
+  	this.http.get('assets/' + book + '.json').subscribe((response) => {
     resolve(response);
 	});
 	});
   }
 
-  setNews(news){
-  	this.news.next(news);
+  setChapter(chapter){
+  	this.chapter.next(chapter);
   }
 
-  getOneNews(){
-  	return this.news;
+  getOneChapter(){
+  	return this.chapter;
   }
 }

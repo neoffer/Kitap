@@ -94,7 +94,7 @@ ion-item {
 }
 
 .bg-transparent {
-    background: #c0c2c0;
+    background: lightgray;
     padding: 0px 10px;
     -webkit-backface-visibility: hidden;
     // position: absolute;
@@ -118,15 +118,14 @@ ion-item {
 }
 
 .newsBlock {
-    height: 110px;
+    height: 50px;
     border-bottom: 1px solid #fff;
     padding-top: 4px;
+    margin: 5px 0px;
 }
 
 
 .newsTitle {
-    float: right;
-    width: calc(100% - 100px);
     padding: 15px 3px;
     text-overflow: ellipsis;
     font-weight: 400;
@@ -194,7 +193,7 @@ ion-item {
     /* position: absolute; */
     margin-top: -40px;
     margin-left: -100px;
-    z-index: 99999999;
+    z-index: 99;
 }
 
 // .overlayDiv:after {

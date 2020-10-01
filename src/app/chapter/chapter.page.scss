@@ -1,28 +1,25 @@
 .newsBox {
-    height: 100%;
     width: 100%;
-    // background-color: #ccc;
-    background-size: cover;
-    background-position: center;
+    height: 100%;
+    background-color: papayawhip;
 }
 
 .backdrop {
-    height: 100%;
     width: 100%;
-    // background: linear-gradient(to top, black, #ffffff00);
-    opacity: 1;
+    height: 100%;
 }
 
 
 
 .newsContainer {
     position: absolute;
-    bottom: 0;
+    top: 50px;
     padding: 30px;
+    background-color: papayawhip;
 }
 
 .newsTitle {
-    color: white;
+    color: black;
     line-height: 27px;
     font-size: 20px;
     text-decoration: underline;
@@ -30,7 +27,7 @@
 }
 
 .newsDesc {
-    color: #fff;
+    color: black;
     padding-top: 10px;
     line-height: 17px;
     font-size: 15px;

@@ -7,13 +7,13 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 // declare var SafariViewController: any;
 
 @Component({
-    selector: 'app-news',
-    templateUrl: './news.page.html',
-    styleUrls: ['./news.page.scss'],
+    selector: 'app-chapter',
+    templateUrl: './chapter.page.html',
+    styleUrls: ['./chapter.page.scss'],
 })
-export class NewsPage {
+export class ChapterPage {
     page: any = {};
-    news: any = {};
+    chapter: any = {};
     img: any // = "https://cdn.cnn.com/cnnnext/dam/assets/191217180817-fedex-truck-file-super-tease.jpg"
 
     constructor(
@@ -27,11 +27,11 @@ export class NewsPage {
     ) {
 
 
-        this.dataService.getOneNews().subscribe((data: any) => {
+        this.dataService.getOneChapter().subscribe((data: any) => {
             this.page = data.page;
-            this.news = data.news;
-            console.log(this.news)
-            this.img = this.news.urlToImage;
+            this.chapter = data.chapter;
+            console.log(this.chapter)
+            this.img = this.chapter.urlToImage;
             console.log(this.img)
 
 
@@ -67,7 +67,7 @@ export class NewsPage {
     }
 
     open() {
-const browser = this.iab.create(this.news.url);
+const browser = this.iab.create(this.chapter.url);
 browser.show();
 browser.on('loadstop').subscribe(event => {
    browser.insertCSS({ code: "body{color: red;" });

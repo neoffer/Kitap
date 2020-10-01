@@ -11,7 +11,7 @@ import { Events, IonContent } from '@ionic/angular';
 })
 export class HomePage {
     @ViewChild(IonContent, {static: false}) ionContent: IonContent;
-    newsList: any = [];
+    chapterList: any = [];
     date: any = new Date();
     day: any = new Date().getDay();
     daysInWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -31,17 +31,17 @@ export class HomePage {
         private route: ActivatedRoute,
         private router: Router
     ) {
-        this.dataService.getNews(this.page.title).then((resp: any) => {
-            this.newsList = resp.articles;
+        this.dataService.getChapters(this.page.image).then((resp: any) => {
+            this.chapterList = resp;
         })
 
 
         this.events.subscribe("setPage", (data) => {
             this.ionContent.scrollToTop(300);
             this.page = data.page;
-            this.dataService.getNews(this.page.title).then((resp: any) => {
+            this.dataService.getChapters(this.page.image).then((resp: any) => {
                 // console.log(resp.articles)
-                this.newsList = resp.articles;
+                this.chapterList = resp;
             })
 
         })
@@ -58,10 +58,10 @@ export class HomePage {
         item.load = true;
     }
 
-    openNews(news) {
-        this.router.navigate(['news']);
+    openChapter(chapter) {
+        this.router.navigate(['chapter']);
 
-        this.dataService.setNews({ page: this.page, news: news });
+        this.dataService.setChapter({ page: this.page, chapter: chapter });
 
         // this.events.publish("setNews",)
     }

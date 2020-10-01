@@ -4,18 +4,18 @@
             <ion-icon name="arrow-round-back"></ion-icon>
         </ion-fab-button>
     </ion-fab>
-    <div class="newsBox" [ngStyle]="{'background-image':'url(' + img + ')'}">
-        <div class="backdrop" [ngStyle]="{background: 'linear-gradient(to top, ' + page.color + ', transparent)'}">
+    <div class="newsBox">
+        <div class="backdrop">
             <div class="newsContainer">
                 <div class="newsTitle">
-                    {{news.title}}
+                    {{chapter.SureAdi}} Sûresi
                 </div>
                 <div class="newsDesc">
-                    {{news.description || news.content}}
+                    {{chapter.Aciklama}}
                 </div>
-                <div (click)="open()" class="continueButton">
-                    continue reading
-                </div>
+                <ol>
+                    <li *ngFor="let ayet of chapter.Ayetler">{{ayet}}</li>
+                </ol>
             </div>
         </div>
     </div>

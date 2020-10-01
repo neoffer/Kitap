@@ -15,28 +15,30 @@
     <div class="three" [style.backgroundColor]="page.color">
     </div>
     <div style="position: absolute;
+    margin-top: -35px;right:5px;z-index:100">
+            <select style="border:1px solid lightgray;padding:5px;width:170px;z-index:1000">
+                    <option value="1">Kitap Sırası</option>
+                    <option value="2">Sûre İniş Sırası</option>
+                    <option value="3">Ayet İniş Sırası</option>
+                </select>
+    </div>
+    <div style="position: absolute;
     margin-top: -55px;
-    padding: 5px 20px;">
-        <span class="dayBox" *ngIf="page.image == 'kuran'">Sûreler</span>
-        <span class="dayBox" *ngIf="page.image != 'kuran'">Bölümler</span>
+    padding: 5px 20px; width:100%;">
+    
+        <h2 *ngIf="page.image == 'kuran'" style="font-weight: bold">Sûreler</h2>
+        <h2 *ngIf="page.image != 'kuran'" style="font-weight: bold">Bölümler</h2>
+        
     </div>
-    <div *ngIf="newsList.length > 0" class="overlayDiv">
+    <div *ngIf="chapterList.length > 0" class="overlayDiv">
+           
     </div>
-    <div *ngIf="newsList.length > 0" class="bg-transparent">
-        <h3 class="ion-padding-horizontal">.LATEST NEWS</h3>
-        <div *ngFor="let news of newsList" mode="ios" (click)="openNews(news)" [style.display]="news.urlToImage ? 'inherit' : 'none'" class="newsBlock">
-            <div class="blockImage">
-                <!-- <img class="blockimg" [src]="news.urlToImage"> -->
-
-        <img class="blockimg" [ngStyle]="{'display' : news.load ? 'initial' : 'none'}" [src]="news.urlToImage" (load)="imageload(news)">
-        <img class="blockimg" [ngStyle]="{'display' : news.load ? 'none' : 'initial'}" [src]="default">
-
-            </div>
+    
+    <div *ngIf="chapterList.length > 0" class="bg-transparent">
+        
+        <div *ngFor="let chapter of chapterList" mode="ios" (click)="openChapter(chapter)" stylw="float:left;" class="newsBlock">
             <div class="newsTitle">
-                {{news.title}}
-            </div>
-            <div class="date">
-                {{news.publishedAt | date:' dd MMM, yyyy'}}
+                    {{chapter.SiraNo}} {{chapter.SureAdi}}
             </div>
         </div>
     </div>
